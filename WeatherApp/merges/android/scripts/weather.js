@@ -9,18 +9,21 @@
     $.getJSON(queryString, function (results) {
         if (results.query.count > 0) {
             var weather = results.query.results.channel;
-            $('#description').text(weather.description);
+             $('#description').text(weather.description);
             console.log(weather.description);
             console.log(weather);
             // Populate div's in index dom with data from the weather object
+            // Get time of weather data build
+            var curTime = weather.lastBuildDate;
             var wind = weather.wind;
             var units = weather.units;
-            $('#temp').text(wind.chill + units.temperature);
-            $('#wind').text(wind.speed + units.speed);
+            $('#time').text(curTime);
+            $('#temp').text(wind.chill + ' ' + units.temperature);
+            $('#wind').text(wind.speed + ' ' + units.speed);
 
             var atmosphere = weather.atmosphere;
-            $('#humidity').text(atmosphere.humidity + '%');
-            $('#visibility').text(atmosphere.visibility + units.distance);
+            $('#humidity').text(atmosphere.humidity + ' %');
+            $('#visibility').text(atmosphere.visibility + ' ' + units.distance);
 
             var astronomy = weather.astronomy;
             $('#sunrise').text(astronomy.sunrise);
