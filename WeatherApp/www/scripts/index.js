@@ -14,8 +14,9 @@
 
         // Event listener for get-weather button
         $('#get-weather').click(getWeather);
-
-        // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
+        
+        // Cordova has been loaded. Perform any initialization that requires Cordova here.
+        getLocation();
     };
 
     function onPause() {
